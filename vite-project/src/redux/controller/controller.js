@@ -1,13 +1,14 @@
-let ProductList = () => (dispatch) => {
+let ProductList = () => async(dispatch) => {
     return (
         <>
-         dispatch(API_LOADING)
+        dispatch(API_LOADING)
         try {
-            let {data} = axios.get('example product.com')
+            let {data} = await axios.get('example product.com')
             console.log(data)
-            dispatch({type: API_SUCCESS, payload: data})
+            dispatch([type: API_SUCCESS, payload: data])
         } catch (error) {
-            dispatch({type: API_ERROR, payload: error.message})
+            dispatch([type: API_ERROR, payload: error.message])
+            console.log(error in ProductList)
         }
        
         </>
@@ -15,12 +16,12 @@ let ProductList = () => (dispatch) => {
     )
 }
 
-let Product = () => (dispatch) => {
+let Product = () => async(dispatch) => {
     return (
         <>
          dispatch(API_LOADING)
         try {
-            let {data} = axios.get(`example product.com/${id}`)
+            let {data} = await axios.get(`example product.com/${id}`)
             console.log(data)
             dispatch({type: API_SUCCESS, payload: data})
         } catch (error) {
@@ -35,13 +36,10 @@ let Product = () => (dispatch) => {
 let Cart = () => (dispatch) => {
     return (
         <>
-         
-        try {
-            let {data} = axios.get(`example product.com/${id}`)
-            dispatch({type: API_SUCCESS, payload: data})
-        } catch (error) {
-           
-        }
+         dispatch(
+        type: API_SUCCESS, 
+        payload: data
+        )
        
         </>
 

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 function App() {
 
   let dispatch = useDispatch()
-  let {product, loading, error} = useSelector(state => state.product)
+  let product = useSelector(state => state.product)
 
   useEffect(()=> {
     dispatch(product)

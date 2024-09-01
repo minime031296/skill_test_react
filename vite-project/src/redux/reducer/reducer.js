@@ -9,12 +9,12 @@ let initialState = {
 let ProductReducer = (state = initialState, action) => {
     switch(action.type) {
         case API_LOADING:
-            return [...state, {loading:true}]
+            return {...state, loading:true}
 
         case API_SUCCESS:
-            return [...state, {loading:false, product: action.payload, error:false}]
+            return {...state, loading:false, product: action.payload, error:false}
         case API_ERROR:
-            return [...state, {loading: false, product: [], error: action.error}]
+            return {...state, loading: false, product: [], error: action.error}
         default:
             return {...state}
     }
